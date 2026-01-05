@@ -14,7 +14,7 @@ Because productivity is not about time, it's about energy.
 ## How to run
 ```bash
 python main.py
-## Example Output
+
 1- Görev Ekle
 2- Görevleri Listele
 3- Enerjime Göre Görev Göster

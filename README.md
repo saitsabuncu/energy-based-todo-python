@@ -15,6 +15,7 @@ Because productivity is not about time, it's about energy.
 ```bash
 python main.py
 
+```bash
 1- Görev Ekle
 2- Görevleri Listele
 3- Enerjime Göre Görev Göster

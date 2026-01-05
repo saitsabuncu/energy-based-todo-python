@@ -39,13 +39,16 @@ def show_by_energy(tasks):
         print("Bu enerji seviyesine uygun görev yok.")
             
 def complete_task(tasks):
-    no = int(input("Tamamlanan görev numarası: ")) - 1
+    no = get_valid_task_number(tasks)
     
-    if 0 <= no < len(tasks):
+    if no is None:
+        return
+
+    if tasks[no]["done"]:
+        print("Bu görev zaten tamamlanmış.")
+    else:
         tasks[no]["done"] = True
         print("Görev tamamlandı.")
-    else:
-        print("Geçersiz numara.")
         
 def daily_summary(tasks):
     print("Gün Özeti:")
@@ -66,6 +69,20 @@ def get_valid_energy():
                 return energy
             else:
                 print("Enerji seviyesi sadece 1, 2 veya 3 olabilir.")
+        except ValueError:
+            print("Lütfen sayı gir.")
+            
+def get_valid_task_number(tasks):
+    if not tasks:
+        print("Tamamlanacak görev yok.")
+        return None
+    while True:
+        try:
+            no = int(input("Tamamlanan görev numarası: ")) - 1
+            if 0 <= no < len(tasks):
+                return no
+            else:
+                print("Geçersiz görev numarası.")
         except ValueError:
             print("Lütfen sayı gir.")
 tasks = []
